@@ -1,0 +1,8 @@
+<!-- Replace this with your splash screen layout, e.g., an image or custom design -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Add your splash screen content here -->
+
+</RelativeLayout>

@@ -1,0 +1,20 @@
+import androidx.room.Database
+import androidx.room.RoomDatabase
+
+@Database(entities = [Recipe::class], version = 1)
+abstract class RecipeDatabase : RoomDatabase() {
+    abstract fun recipeDao(): RecipeDao
+}
+
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
+
+@Dao
+interface RecipeDao {
+    @Insert
+    fun insert(recipe: Recipe)
+
+    @Query("SELECT * FROM recipes")
+    fun getAllRecipes(): List<Recipe>
+}

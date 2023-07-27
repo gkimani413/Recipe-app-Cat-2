@@ -1,0 +1,28 @@
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var recipeAdapter: RecipeAdapter
+    private lateinit var recyclerView: RecyclerView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recipeAdapter = RecipeAdapter(getSampleRecipes()) // Replace this with actual recipes from the database
+        recyclerView.adapter = recipeAdapter
+    }
+
+    // Replace this with actual implementation to fetch recipes from the database
+    private fun getSampleRecipes(): List<Recipe> {
+        return listOf(
+            Recipe(1, "Breakfast", 2, "Beginner", "Eggs, Bacon, Bread", "1. Cook bacon.\n2. Fry eggs.\n3. Toast bread."),
+            Recipe(2, "Lunch", 4, "Intermediate", "Chicken, Rice, Vegetables", "1. Cook rice.\n2. Grill chicken.\n3. Chop vegetables.")
+            // Add more sample recipes
+        )
+    }
+}
